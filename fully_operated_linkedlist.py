@@ -61,14 +61,23 @@ class linkedList:
                 count = count + 1
             storePreviousNode.next = start.next
             return start.data
-            
+# Iterative Traversal Approach            
     def get_list(self):
         start = self.head
         while(start is not None):
                 
             print(start.data,end=" ")
             start = start.next
-            
+# Recursive Approach
+    def getNodes(self):
+    	return self.getNodeCount(self.head)
+    
+    def getNodeCount(self, node):
+
+        if(node is None):
+            return 0
+        else:
+            return 1 + self.getNodeCount(node.next)
 if __name__ == '__main__':
   t = linkedList()  
   t.insertAtBeginning(4)
@@ -80,3 +89,5 @@ if __name__ == '__main__':
   print(t.deleteAtParticularPosition(1))
   
   t.get_list()
+  val = t.getNodes()
+  print(f"Total Nodes {val}")
